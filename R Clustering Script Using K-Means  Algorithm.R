@@ -7,21 +7,22 @@ install.packages("dplyr")
 library(dplyr)
 
 # Get data from csv, and show first 10 rows of data
-data <- read.csv("CigarettesSW.csv", sep = ',')
-sample_n(data[6:9], 10)
+data <- read.csv("Money.csv", sep = ',')
+sample_n(data[2:4], 10)
 
 # Run K-Means algoritma in the dataset
-cl<-kmeans(data[6:9], 3)
+cl<-kmeans(data[2:4], 3)
 cl
 
 # To access the values in the kmeans model
 cl$size
 
 # Create the plot
-plot(data[2:3], col = cl$cluster)
+plot(data[3:4], col = cl$cluster)
 
 # Give some attracted property to the plot
-points(cl$centers, col = 2:3, pch = 8, cex = 2)
+points(cl$centers, col = 1:2, pch = 8, cex = 2)
+cl$centers
 
 #View the data and cluster number in a new table
 result <- data.frame(data,cl$cluster)
